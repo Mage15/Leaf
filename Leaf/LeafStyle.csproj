@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B96E2A4-1D9C-42E8-AF47-DFFC5B4C3A76}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Leaf</RootNamespace>
+    <AssemblyName>Leaf</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MonoGame.Framework, Version=3.1.2.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Containers\ColorContainer.cs" />
+    <Compile Include="Containers\Containers.cs" />
+    <Compile Include="Containers\QuoteCharacter.cs" />
+    <Compile Include="Parsers\ColorParser.cs" />
+    <Compile Include="Parsers\MatrixParser.cs" />
+    <Compile Include="Parsers\Parser.cs" />
+    <Compile Include="Parsers\PointParser.cs" />
+    <Compile Include="Parsers\QuadValuesParser.cs" />
+    <Compile Include="Parsers\StringParser.cs" />
+    <Compile Include="Parsers\VectorParser.cs" />
+    <Compile Include="Properties.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyClasses\BasicStyleProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\BasicColorProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\BasicImageProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\BasicLengthProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\BasicNavProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\BasicNumberProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\BasicOutlineProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\BasicOverflowProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\BasicPageBreakProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\BasicRadiusProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\BasicSpacingProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\BasicTimeProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\BasicValuesProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\BasicWidthProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\ColorTransparentProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\LengthAutoProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\LengthNoneProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\LengthPercentAutoProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\LengthPercentNoneProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\LengthPercentProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\NumberAutoProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\NumberLengthProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\TextDecorationProperty.cs" />
+    <Compile Include="PropertyClasses\GeneralProperties\TimingFunctionProperty.cs" />
+    <Compile Include="PropertyClasses\ImageStyleProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\AlignContentProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\AlignItemsProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\AlignSelfProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Animation\AnimationDirectionProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Animation\AnimationFillModeProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Animation\AnimationIterationCountProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Animation\AnimationNameProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Animation\AnimationPlayStateProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Animation\KeyframesProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Background\BackgroundAttachmentProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Background\BackgroundClipProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Background\BackgroundOriginProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Background\BackgroundPositionProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Background\BackgroundRepeatProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Background\BackgroundSizeProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Border\BorderImageRepeatProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Border\BorderImageSliceProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Border\BorderImageWidthProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\BoxShadowProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\BoxSizingProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\ClearProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\ClipProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Column\ColumnFillProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Column\ColumnSpanProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\ContentProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\CounterIncrementProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\CounterResetProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\CursorProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\DirectionProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\DisplayProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Flex\FlexDirectionProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Flex\FlexProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Flex\FlexWrapProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\FloatProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Font\FontFaceProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Font\FontFamilyProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Font\FontProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Font\FontSizeAdjustProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Font\FontSizeProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Font\FontStretchProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Font\FontStyleProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Font\FontVariantProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Font\FontWeightProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\IconProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\JustifyContentProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\LineHeightProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\ListStyle\ListStyleImageProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\ListStyle\ListStylePositionProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\ListStyle\ListStyleTypeProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\OpacityProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\OutlineColorProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\PageBreakInsideProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\PositionProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\QuotesProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\ResizeProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Table\BorderCollapseProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Table\BorderSpacingProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Table\CaptionSideProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Table\EmptyCellsProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Table\TableLayoutProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Text\HangingPunctuationProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Text\TextAlignLastProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Text\TextAlignProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Text\TextJustifyProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Text\TextOverflowProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Text\TextShadowProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Text\TextTransformProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Text\WhiteSpaceProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Text\WordBreakProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Text\WordWrapProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Transform\BackfaceVisibilityProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Transform\PerspectiveOriginProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Transform\TransformOriginProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Transform\TransformProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\Transform\TransformStyleProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\TransitionPropertyProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\UnicodeBidiProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\VerticalAlignProperty.cs" />
+    <Compile Include="PropertyClasses\SpecificProperties\VisibilityProperty.cs" />
+    <Compile Include="PropertyClasses\StyleProperty.cs" />
+    <Compile Include="PropertyStates.cs" />
+    <Compile Include="Style.cs" />
+    <Compile Include="Values.cs" />
+    <Compile Include="WrapperMethods\AnimationWrappers.cs" />
+    <Compile Include="WrapperMethods\BackgroundWrappers.cs" />
+    <Compile Include="WrapperMethods\BorderWrappers.cs" />
+    <Compile Include="WrapperMethods\ColumnWrappers.cs" />
+    <Compile Include="WrapperMethods\FlexWrappers.cs" />
+    <Compile Include="WrapperMethods\FontWrappers.cs" />
+    <Compile Include="WrapperMethods\ListStyleWrappers.cs" />
+    <Compile Include="WrapperMethods\MarginWrappers.cs" />
+    <Compile Include="WrapperMethods\NavWrappers.cs" />
+    <Compile Include="WrapperMethods\OutlineWrappers.cs" />
+    <Compile Include="WrapperMethods\PaddingWrappers.cs" />
+    <Compile Include="WrapperMethods\TextWrappers.cs" />
+    <Compile Include="WrapperMethods\TransformWrappers.cs" />
+    <Compile Include="WrapperMethods\TransitionWrappers.cs" />
+    <Compile Include="WrapperMethods\WrapperMethods.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

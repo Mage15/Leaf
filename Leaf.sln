@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeafStyle", "Leaf\LeafStyle.csproj", "{5B96E2A4-1D9C-42E8-AF47-DFFC5B4C3A76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeafElements", "LeafElements\LeafElements.csproj", "{A08EA637-4D95-4C06-8B92-70CF397C8403}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B96E2A4-1D9C-42E8-AF47-DFFC5B4C3A76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B96E2A4-1D9C-42E8-AF47-DFFC5B4C3A76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B96E2A4-1D9C-42E8-AF47-DFFC5B4C3A76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B96E2A4-1D9C-42E8-AF47-DFFC5B4C3A76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A08EA637-4D95-4C06-8B92-70CF397C8403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A08EA637-4D95-4C06-8B92-70CF397C8403}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A08EA637-4D95-4C06-8B92-70CF397C8403}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A08EA637-4D95-4C06-8B92-70CF397C8403}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
