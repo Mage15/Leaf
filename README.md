@@ -5,7 +5,7 @@ I began to strip out a lot of the features in order to make MonogameUI usable fo
 
 The goal with Leaf will be to build a web browser from scratch using the .NET framework.
 
-Currently Leaf is stil under heavy development and is not recommended for use.
+Currently Leaf is still under heavy development and is not recommended for use.
 
 
 ## Roadmap
