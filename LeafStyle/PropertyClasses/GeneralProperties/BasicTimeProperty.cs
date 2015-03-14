@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BasicTimeProperty : BasicStyleProperty<BasicTimeState>
+    public class BasicTimeProperty : BasicStyleProperty<BasicTimeState>
     {
         // Negative values are allowed, -2s makes the animation start at once, 
         // but starts 2 seconds into the animation.
@@ -74,22 +74,6 @@ namespace LeafStyle
             }
 
             // Could not be parsed
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(int))
-                {
-                    this.Milliseconds = (int)value;
-                    this.CurrentState = BasicTimeState.Time;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

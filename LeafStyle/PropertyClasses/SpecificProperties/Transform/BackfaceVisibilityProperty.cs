@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BackfaceVisibilityProperty : BasicStyleProperty<BackfaceVisibilityState>
+    public class BackfaceVisibilityProperty : BasicStyleProperty<BackfaceVisibilityState>
     {
         public BackfaceVisibilityProperty()
             : base(

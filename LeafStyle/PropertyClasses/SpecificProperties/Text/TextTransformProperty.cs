@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class TextTransformProperty : BasicStyleProperty<TextTransformState>
+    public class TextTransformProperty : BasicStyleProperty<TextTransformState>
     {
         public TextTransformProperty()
             : base(

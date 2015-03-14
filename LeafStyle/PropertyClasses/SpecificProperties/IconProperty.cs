@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class IconProperty : ImageStyleProperty<IconState>
+    public class IconProperty : ImageStyleProperty<IconState>
     {
         Parser.StringParser stringParser = new Parser.StringParser();
 
@@ -59,22 +59,6 @@ namespace LeafStyle
             }
 
             // Couldn't parse
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(PropertyString))
-                {
-                    this.ImageName = ((PropertyString)value).StringValue;
-                    this.CurrentState = IconState.Url;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

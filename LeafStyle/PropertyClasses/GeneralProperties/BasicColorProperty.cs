@@ -20,11 +20,11 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BasicColorProperty : BasicStyleProperty<BasicColorState>
+    public class BasicColorProperty : BasicStyleProperty<BasicColorState>
     {
         private Parser.ColorParser colorParser = new Parser.ColorParser();
 
-        public Microsoft.Xna.Framework.Color Color;
+        public Microsoft.Xna.Framework.Color Color { get; private set; }
 
         public BasicColorProperty()
             : base(
@@ -63,22 +63,6 @@ namespace LeafStyle
             }
 
             // Could not be parsed
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(Microsoft.Xna.Framework.Color))
-                {
-                    this.Color = (Microsoft.Xna.Framework.Color)value;
-                    this.CurrentState = BasicColorState.Color;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

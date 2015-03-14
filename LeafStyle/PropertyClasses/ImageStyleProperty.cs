@@ -23,7 +23,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class ImageStyleProperty<TState> : BasicStyleProperty<TState>
+    public class ImageStyleProperty<TState> : BasicStyleProperty<TState>
             where TState : struct, IConvertible
     {
         protected string ImageName { get; set; }
@@ -49,9 +49,9 @@ namespace LeafStyle
             return true;
         }
 
-        public virtual bool LoadImage(ContentManager contentManager, PropertyString xnbTextureName)
+        public virtual bool LoadImage(ContentManager contentManager, string xnbTextureName)
         {
-            this.ImageName = xnbTextureName.StringValue;
+            this.ImageName = xnbTextureName;
             return this.LoadImage(contentManager);
         }
     }

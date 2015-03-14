@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class OpacityProperty : BasicStyleProperty<BasicNumberState>
+    public class OpacityProperty : BasicStyleProperty<BasicNumberState>
     {
         public float Number { get; set; }
 
@@ -60,22 +60,6 @@ namespace LeafStyle
             }
 
             // Could not be parsed
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(float))
-                {
-                    this.Number = (int)value;
-                    this.CurrentState = BasicNumberState.Number;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

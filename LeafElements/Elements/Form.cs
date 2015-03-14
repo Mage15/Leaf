@@ -1,19 +1,19 @@
 ﻿/* 
-    Copyright (C) 2015  Matthew Gefaller
-    This file is part of LeafElements.
+    Copyright (C) 2015 Matthew Gefaller
+    This file is part of Leaf.
 
-    LeafElements is free software: you can redistribute it and/or modify
+    Leaf is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    LeafElements is distributed in the hope that it will be useful,
+    Leaf is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with LeafElements.  If not, see <http://www.gnu.org/licenses/>.
+    along with Leaf.  If not, see <http://www.gnu.org/licenses/>.
  */ 
 
 using Microsoft.Xna.Framework.Content;
@@ -25,9 +25,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeafElements
+namespace Leaf
 {
-    class Form : Element
+    public class Form : LeafElement
     {
         #region Enums
 

@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class EmptyCellsProperty : BasicStyleProperty<EmptyCellsState>
+    public class EmptyCellsProperty : BasicStyleProperty<EmptyCellsState>
     {
         public EmptyCellsProperty()
             : base(

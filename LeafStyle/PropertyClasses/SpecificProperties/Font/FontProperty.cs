@@ -21,7 +21,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class FontProperty : BasicStyleProperty<FontState>
+    public class FontProperty : BasicStyleProperty<FontState>
     {
         public FontProperty()
             : base(

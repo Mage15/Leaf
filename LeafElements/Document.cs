@@ -1,39 +1,43 @@
 ﻿/* 
-    Copyright (C) 2015  Matthew Gefaller
-    This file is part of LeafElements.
+    Copyright (C) 2015 Matthew Gefaller
+    This file is part of Leaf.
 
-    LeafElements is free software: you can redistribute it and/or modify
+    Leaf is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    LeafElements is distributed in the hope that it will be useful,
+    Leaf is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with LeafElements.  If not, see <http://www.gnu.org/licenses/>.
+    along with Leaf.  If not, see <http://www.gnu.org/licenses/>.
  */ 
 
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using LeafStyle;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeafElements
+namespace Leaf
 {
-    class Document
-    {
-        public Dictionary<string, Page> Pages { get; private set; }
-        public List<List<Page>> PageZIndex { get; set; }
-        public Element FocusElement { get; set; }
+    public class Document
+    {        
+        private Dictionary<string, Page> Pages { get; set; }
+        private List<List<Page>> PageZIndex { get; set; }
+
+        public static Dictionary<string, UIStyle> GlobalStyleClasses { get; private set; }
+        public LeafElement FocusElement { get; set; }
 
         public Document()
         {
+            Document.GlobalStyleClasses = new Dictionary<string, UIStyle>();
             Pages = new Dictionary<string, Page>();
             PageZIndex = new List<List<Page>>();
             FocusElement = null;

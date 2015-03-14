@@ -21,7 +21,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BackgroundPositionProperty : BasicStyleProperty<BackgroundPositionState>
+    public class BackgroundPositionProperty : BasicStyleProperty<BackgroundPositionState>
     {
         private Parser.PointParser pointParser = new Parser.PointParser();
         private Parser.VectorParser vectorParser = new Parser.VectorParser();
@@ -87,29 +87,6 @@ namespace LeafStyle
             }
 
             // Could not be parsed
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(Point))
-                {
-                    this.PositionAbsolute = (Point)value;
-                    this.CurrentState = BackgroundPositionState.XY_Absolute;
-
-                    return true;
-                }
-                else if (value.GetType() == typeof(Vector2))
-                {
-                    this.PositionPercent = (Vector2)value;
-                    this.CurrentState = BackgroundPositionState.XY_Percent;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

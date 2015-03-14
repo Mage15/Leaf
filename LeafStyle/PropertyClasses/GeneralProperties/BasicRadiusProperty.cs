@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BasicRadiusProperty : BasicStyleProperty<BasicRadiusState>
+    public class BasicRadiusProperty : BasicStyleProperty<BasicRadiusState>
     {
         public int LengthAbsolute;
         public float LengthPercent;
@@ -75,29 +75,6 @@ namespace LeafStyle
             }
 
             // Could not be parsed
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(int))
-                {
-                    this.LengthAbsolute = (int)value;
-                    this.CurrentState = BasicRadiusState.LengthAbsolute;
-
-                    return true;
-                }
-                else if (value.GetType() == typeof(float))
-                {
-                    this.LengthPercent = (float)value;
-                    this.CurrentState = BasicRadiusState.LengthPercent;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

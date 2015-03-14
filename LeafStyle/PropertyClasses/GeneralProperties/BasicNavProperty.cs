@@ -20,10 +20,10 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BasicNavProperty : BasicStyleProperty<BasicNavState>
+    public class BasicNavProperty : BasicStyleProperty<BasicNavState>
     {
-        public string Id { get; set; }
-        public string TargetName { get; set; }
+        public string Id { get; private set; }
+        public string TargetName { get; private set; }
 
         public BasicNavProperty()
             : base(
@@ -67,32 +67,6 @@ namespace LeafStyle
             }
 
             // Value is null return false
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(NavValuesContainer))
-                {
-                    if (!((NavValuesContainer)value).Id.IsEmpty()) // If Id is not empty
-                    {
-                        this.Id = ((NavValuesContainer)value).Id.StringValue;
-                        this.CurrentState = BasicNavState.Id;
-
-                        return true;
-                    }
-                    else if (!((NavValuesContainer)value).TargetName.IsEmpty()) // If TargetName is not empty
-                    {
-                        this.TargetName = ((NavValuesContainer)value).TargetName.StringValue;
-                        this.CurrentState = BasicNavState.TargetName;
-
-                        return true;
-                    }
-                }
-            }
-
             return false;
         }
     }

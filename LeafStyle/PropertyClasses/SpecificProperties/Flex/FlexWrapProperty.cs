@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class FlexWrapProperty : BasicStyleProperty<FlexWrapState>
+    public class FlexWrapProperty : BasicStyleProperty<FlexWrapState>
     {
         public FlexWrapProperty()
             : base(

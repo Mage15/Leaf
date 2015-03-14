@@ -1,34 +1,37 @@
 ﻿/* 
-    Copyright (C) 2015  Matthew Gefaller
-    This file is part of LeafElements.
+    Copyright (C) 2015 Matthew Gefaller
+    This file is part of Leaf.
 
-    LeafElements is free software: you can redistribute it and/or modify
+    Leaf is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    LeafElements is distributed in the hope that it will be useful,
+    Leaf is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with LeafElements.  If not, see <http://www.gnu.org/licenses/>.
+    along with Leaf.  If not, see <http://www.gnu.org/licenses/>.
  */ 
 
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeafElements
+namespace Leaf
 {
     public enum ButtonType { Button, Reset, Submit };
 
-    class Button : Element
+    public class Button : LeafElement
     {
+        private Texture2D texture;
+
         #region Properties
 
         /******** Properties **********/
@@ -47,16 +50,43 @@ namespace LeafElements
         public string FormTargetFrame { get; set; }     //Specifies where to display the response after submitting the form. Only for type="submit"
 
         #endregion
-
-        #region Constructor
-
+        
         public Button(ContentManager contentManager)
             : base(contentManager)
         {
-
+            contentManager.Load<Texture2D>("");
         }
 
-        #endregion
+        public bool TryLoadImage(string imagePath)
+        {
+            try
+            {
+                base.ContentManager.Load<Texture2D>(imagePath);
+            }
+            catch { return false; }
 
+            return true;
+        }
+
+        public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        {
+            if (this.Visible)
+            {
+                // Refresh values based on Style object
+
+                // Texture2D texture,
+                // Vector2 position,
+                // Nullable<Rectangle> sourceRectangle,
+                // Color color,
+                // float rotation,
+                // Vector2 origin,
+                // Vector2 scale,
+                // SpriteEffects effects,
+                // float layerDepth
+
+                // Draw element
+                // spriteBatch.Draw(texture, this.Position, sourceRectangle, this.BackgroundColor)                
+            }
+        }
     }
 }

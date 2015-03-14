@@ -94,9 +94,9 @@ namespace LeafStyle
         ColumnSpan,
         ColumnWidth,
         Columns,
-        Content,
-        CounterIncrement,
-        CounterReset,
+        // Content is handeled at the element level
+        // CounterIncrement is handeled at the element level
+        // CounterReset is handeled at the element level
         Cursor,
         Direction,
         Display,
@@ -137,6 +137,7 @@ namespace LeafStyle
         MarginTop,
         MaxHeight,
         MaxWidth,
+        Media,
         MinHeight,
         MinWidth,
         NavDown,
@@ -175,6 +176,7 @@ namespace LeafStyle
         TextDecoration,
         TextDecorationColor,
         TextDecorationLine,
+        TextDecorationStyle,
         TextIndent,
         TextJustify,
         TextOverflow,

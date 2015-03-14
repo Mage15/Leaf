@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class FontSizeProperty : BasicStyleProperty<FontSizeState>
+    public class FontSizeProperty : BasicStyleProperty<FontSizeState>
     {
         public int Absolute { get; set; }
         public float Percent { get; set; }
@@ -84,30 +84,6 @@ namespace LeafStyle
             }
 
             // Couldn't parse
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(int))
-                {
-                    this.Absolute = (int)value;
-                    this.CurrentState = FontSizeState.LengthAbsolute;
-
-                    return true;
-                }
-                else if (value.GetType() == typeof(float))
-                {
-                    this.Percent = (float)value;
-                    this.CurrentState = FontSizeState.LengthPercent;
-
-                    return true;
-                }
-
-            }
-
             return false;
         }
     }

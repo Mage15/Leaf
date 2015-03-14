@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class AnimationFillModeProperty : BasicStyleProperty<AnimationFillModeState>
+    public class AnimationFillModeProperty : BasicStyleProperty<AnimationFillModeState>
     {
         public AnimationFillModeProperty()
             : base(

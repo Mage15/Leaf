@@ -1,19 +1,19 @@
 ﻿/* 
-    Copyright (C) 2015  Matthew Gefaller
-    This file is part of LeafElements.
+    Copyright (C) 2015 Matthew Gefaller
+    This file is part of Leaf.
 
-    LeafElements is free software: you can redistribute it and/or modify
+    Leaf is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    LeafElements is distributed in the hope that it will be useful,
+    Leaf is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with LeafElements.  If not, see <http://www.gnu.org/licenses/>.
+    along with Leaf.  If not, see <http://www.gnu.org/licenses/>.
  */ 
 
 using Microsoft.Xna.Framework.Content;
@@ -25,14 +25,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeafElements
+namespace Leaf
 {
-    class Page : Element
+    class Page : LeafElement
     {
         #region Properties
 
-        public Dictionary<string, Element> ChildElements { get; private set; }
-        public List<List<Element>> ElementZIndex { get; set; }
+        public Dictionary<string, LeafElement> ChildElements { get; private set; }
+        public List<List<LeafElement>> ElementZIndex { get; set; }
 
         #endregion
 
@@ -41,8 +41,8 @@ namespace LeafElements
         public Page(ContentManager contentManager)
             : base(contentManager)
         {
-            ChildElements = new Dictionary<string, Element>();
-            ElementZIndex = new List<List<Element>>();
+            ChildElements = new Dictionary<string, LeafElement>();
+            ElementZIndex = new List<List<LeafElement>>();
         }
 
         #endregion
@@ -75,7 +75,7 @@ namespace LeafElements
         {
             if (this.Visible)
             {
-                foreach (Element element in ChildElements.Values)
+                foreach (LeafElement element in ChildElements.Values)
                 {
                     if (element.Visible)
                     {
@@ -98,9 +98,9 @@ namespace LeafElements
             {
                 base.Draw(spriteBatch);
 
-                foreach (List<Element> elemList in ElementZIndex)
+                foreach (List<LeafElement> elemList in ElementZIndex)
                 {
-                    foreach (Element element in elemList)
+                    foreach (LeafElement element in elemList)
                     {
                         if (element.Visible)
                         {

@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class VerticalAlignProperty : BasicStyleProperty<VerticalAlignState>
+    public class VerticalAlignProperty : BasicStyleProperty<VerticalAlignState>
     {
         public int LengthAbsolute { get; set; }
         public float LengthPercent { get; set; }
@@ -83,29 +83,6 @@ namespace LeafStyle
             }
 
             // Couldn't parse
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(int))
-                {
-                    this.LengthAbsolute = (int)value;
-                    this.CurrentState = VerticalAlignState.LengthAbsolute;
-
-                    return true;
-                }
-                else if (value.GetType() == typeof(float))
-                {
-                    this.LengthPercent = (float)value;
-                    this.CurrentState = VerticalAlignState.LengthPercent;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class TextAlignProperty : BasicStyleProperty<TextAlignState>
+    public class TextAlignProperty : BasicStyleProperty<TextAlignState>
     {
         public TextAlignProperty()
             : base(

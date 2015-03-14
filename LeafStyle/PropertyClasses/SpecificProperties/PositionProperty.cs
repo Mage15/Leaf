@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class PositionProperty : BasicStyleProperty<PositionState>
+    public class PositionProperty : BasicStyleProperty<PositionState>
     {
         public PositionProperty()
             : base(

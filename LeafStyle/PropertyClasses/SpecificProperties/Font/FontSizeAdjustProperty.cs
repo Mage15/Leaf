@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class FontSizeAdjustProperty : BasicStyleProperty<FontSizeAdjustState>
+    public class FontSizeAdjustProperty : BasicStyleProperty<FontSizeAdjustState>
     {
         public float Number { get; set; }
 
@@ -59,22 +59,6 @@ namespace LeafStyle
             }
 
             // Couldn't parse
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(float))
-                {
-                    this.Number = (float)value;
-                    this.CurrentState = FontSizeAdjustState.Number;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

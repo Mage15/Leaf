@@ -21,7 +21,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BorderSpacingProperty : BasicStyleProperty<BasicLengthState>
+    public class BorderSpacingProperty : BasicStyleProperty<BasicLengthState>
     {
         private Parser.PointParser pointParser = new Parser.PointParser();
 
@@ -63,22 +63,6 @@ namespace LeafStyle
             }
 
             // Could not be parsed
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(Point))
-                {
-                    this.Spacing = (Point)value;
-                    this.CurrentState = BasicLengthState.Length;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

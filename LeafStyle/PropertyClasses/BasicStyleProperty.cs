@@ -21,7 +21,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BasicStyleProperty<TState> : StyleProperty
+    public class BasicStyleProperty<TState> : StyleProperty
             where TState : struct, IConvertible
     {
         protected Dictionary<string, TState> StateValues;
@@ -37,11 +37,6 @@ namespace LeafStyle
             this.Inherited = this.Inherit = inherited;
             this.Animatable = animatable;
             this.ValueType = typeof(TState);
-        }
-
-        public override Type GetTypeOfValues()
-        {
-            return this.ValueType;
         }
 
         protected virtual TState GetInitialValue()
@@ -60,11 +55,33 @@ namespace LeafStyle
                 }
             }
 
+            this.CurrentState = default(TState);
             return false;
         }
 
-        public override bool TrySetValue(object value) { return false; }
+        /************* Used for Abondoned API ****************/
+        //public override Type GetTypeOfValues()
+        //{
+        //    return this.ValueType;
+        //}
 
-        public override bool TrySetValues(object[] values) { return false; }
+        //public override bool TrySetCurrentState<TState>(TState currentState)
+        //{
+        //    if (typeof(TState) == this.ValueType)
+        //    {
+        //        this.CurrentState = (dynamic)currentState;
+
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+
+        //public override bool TrySetValue(object value) { return false; }
+
+        //public override bool TrySetValues(object[] values) { return false; }
+        /*****************************************************/
     }
 }

@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class AlignSelfProperty : BasicStyleProperty<AlignSelfState>
+    public class AlignSelfProperty : BasicStyleProperty<AlignSelfState>
     {
         public AlignSelfProperty()
             : base(
@@ -32,7 +32,7 @@ namespace LeafStyle
             this.StateValues = new Dictionary<string, AlignSelfState>()
 				{
 					{"auto", AlignSelfState.Auto },
-					{"strech", AlignSelfState.Stretch },
+					{"stretch", AlignSelfState.Stretch },
 					{"center", AlignSelfState.Center },
 					{"flex-start", AlignSelfState.FlexStart },
 					{"flex-end", AlignSelfState.FlexEnd },

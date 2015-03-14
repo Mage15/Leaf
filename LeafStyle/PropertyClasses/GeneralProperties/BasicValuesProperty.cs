@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BasicValuesProperty : BasicStyleProperty<BasicValuesState>
+    public class BasicValuesProperty : BasicStyleProperty<BasicValuesState>
     {
         public BasicValuesProperty()
             : base(

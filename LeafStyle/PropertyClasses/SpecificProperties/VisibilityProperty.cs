@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class VisibilityProperty : BasicStyleProperty<VisibilityState>
+    public class VisibilityProperty : BasicStyleProperty<VisibilityState>
     {
         public VisibilityProperty()
             : base(

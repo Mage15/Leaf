@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class TransitionPropertyProperty : BasicStyleProperty<TransitionPropertyState>
+    public class TransitionPropertyProperty : BasicStyleProperty<TransitionPropertyState>
     {
         private Parser.StringParser stringParser = new Parser.StringParser();
 
@@ -63,44 +63,6 @@ namespace LeafStyle
 
             // Couldn't parse
             return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(List<string>))
-                {
-                    this.PropertyNames = (List<string>)value;
-                    this.CurrentState = TransitionPropertyState.Property;
-
-                    return true;
-                }
-                else if (value.GetType() == typeof(string))
-                {
-                    this.PropertyNames.Add((string)value);
-                    this.CurrentState = TransitionPropertyState.Property;
-
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        public override bool TrySetValues(object[] values)
-        {
-            bool allValuesSet = true;
-
-            foreach (object obj in values)
-            {
-                if (!this.TrySetValue(obj))
-                {
-                    allValuesSet = false;
-                }
-            }
-
-            return allValuesSet;
         }
     }
 }

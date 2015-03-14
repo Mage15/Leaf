@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BackgroundRepeatProperty : BasicStyleProperty<BackgroundRepeatState>
+    public class BackgroundRepeatProperty : BasicStyleProperty<BackgroundRepeatState>
     {
         public BackgroundRepeatProperty()
             : base(

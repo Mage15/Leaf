@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class LineHeightProperty : BasicStyleProperty<LineHeightState>
+    public class LineHeightProperty : BasicStyleProperty<LineHeightState>
     {
         public short Number { get; set; }
         public int Absolute { get; set; }
@@ -88,36 +88,6 @@ namespace LeafStyle
             }
 
             // Couldn't parse
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(int))
-                {
-                    this.Absolute = (int)value;
-                    this.CurrentState = LineHeightState.LengthAbsolute;
-
-                    return true;
-                }
-                else if (value.GetType() == typeof(short))
-                {
-                    this.Number = (short)value;
-                    this.CurrentState = LineHeightState.LengthPercent;
-
-                    return true;
-                }
-                else if (value.GetType() == typeof(float))
-                {
-                    this.Percent = (float)value;
-                    this.CurrentState = LineHeightState.Number;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

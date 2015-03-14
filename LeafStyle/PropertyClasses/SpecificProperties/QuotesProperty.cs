@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class QuotesProperty : BasicStyleProperty<QuotesState>
+    public class QuotesProperty : BasicStyleProperty<QuotesState>
     {
         public QuoteValuesContainer Values { get; set; }
 
@@ -71,22 +71,6 @@ namespace LeafStyle
             }
 
             // Couldn't parse
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(QuoteValuesContainer))
-                {
-                    this.Values = (QuoteValuesContainer)value;
-                    this.CurrentState = QuotesState.UseValues;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class DisplayProperty : BasicStyleProperty<DisplayState>
+    public class DisplayProperty : BasicStyleProperty<DisplayState>
     {
         public DisplayProperty()
             : base(

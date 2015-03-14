@@ -20,9 +20,9 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BasicNumberProperty : BasicStyleProperty<BasicNumberState>
+    public class BasicNumberProperty : BasicStyleProperty<BasicNumberState>
     {
-        public int Number { get; set; }
+        public int Number { get; private set; }
 
         public BasicNumberProperty()
             : base(
@@ -60,22 +60,6 @@ namespace LeafStyle
             }
 
             // Could not be parsed
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(int))
-                {
-                    this.Number = (int)value;
-                    this.CurrentState = BasicNumberState.Number;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class TimingFunctionProperty : BasicStyleProperty<TimingFunctionState>
+    public class TimingFunctionProperty : BasicStyleProperty<TimingFunctionState>
     {
         public TimingFunctionProperty()
             : base(

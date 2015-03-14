@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Leaf")]
+[assembly: AssemblyTitle("LeafStyle")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Leaf")]
+[assembly: AssemblyProduct("LeafStyle")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ad0dc003-eb8d-4651-bb2c-69754e486f71")]
+[assembly: Guid("ff40bca0-7fec-4f73-81c1-a35784e26917")]
 
 // Version information for an assembly consists of the following four values:
 //

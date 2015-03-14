@@ -21,7 +21,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BoxShadowProperty : BasicStyleProperty<BoxShadowState>
+    public class BoxShadowProperty : BasicStyleProperty<BoxShadowState>
     {
         private Parser.ColorParser colorParser = new Parser.ColorParser();
         private Parser.PointParser pointParser = new Parser.PointParser();
@@ -31,7 +31,7 @@ namespace LeafStyle
         public int Spread { get; set; }
         public Microsoft.Xna.Framework.Color Color { get; set; }
 
-        private BoxShadowProperty()
+        public BoxShadowProperty()
             : base(
                     defaultState: default(BoxShadowState),
                     inherited: false,
@@ -58,7 +58,7 @@ namespace LeafStyle
             }
             else if (value != null)
             {
-                string[] valuesArray = value.Split(new char[] { ' ' });
+                string[] valuesArray = value.Split(' ');
                 int index = 0; // Used to move through valuesArray
 
                 Point location;
@@ -119,40 +119,6 @@ namespace LeafStyle
 
             // Could not parse
             return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(Point))
-                {
-                    this.Location = (Point)value;
-                    return true;
-                }
-                else if (value.GetType() == typeof(Microsoft.Xna.Framework.Color))
-                {
-                    this.Color = (Microsoft.Xna.Framework.Color)value;
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        public override bool TrySetValues(object[] values)
-        {
-            bool allValuesSet = true;
-
-            foreach (object obj in values)
-            {
-                if (!this.TrySetValue(obj))
-                {
-                    allValuesSet = false;
-                }
-            }
-
-            return allValuesSet;
         }
     }
 }

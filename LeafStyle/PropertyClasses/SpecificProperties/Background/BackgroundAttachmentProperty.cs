@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BackgroundAttachmentProperty : BasicStyleProperty<BackgroundAttachmentState>
+    public class BackgroundAttachmentProperty : BasicStyleProperty<BackgroundAttachmentState>
     {
         public BackgroundAttachmentProperty()
             : base(

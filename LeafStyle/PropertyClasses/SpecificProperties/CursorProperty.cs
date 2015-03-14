@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class CursorProperty : ImageStyleProperty<CursorState>
+    public class CursorProperty : ImageStyleProperty<CursorState>
     {
         private Parser.StringParser stringParser = new Parser.StringParser();
 
@@ -47,6 +47,8 @@ namespace LeafStyle
 		            {"default", CursorState.Default},
 		            {"e-resize", CursorState.E_Resize},
 		            {"ew-resize", CursorState.EW_Resize},
+                    {"grab", CursorState.Grab},
+                    {"grabbing", CursorState.Grabbing},
 		            {"help", CursorState.Help},
 		            {"move", CursorState.Move},
 		            {"n-resize", CursorState.N_Resize},
@@ -120,46 +122,30 @@ namespace LeafStyle
                         {
                             this.BackupState = StateValues[str];
                         }
+                        else
+                        {
+                            this.BackupState = default(CursorState);
+                        }
                     }
+                }
+
+                if(this.UrlList.Count > 0)
+                {
+                    this.ImageName = UrlList[0];
+                    this.CurrentState = CursorState.Url;
+
+                    return true;
+                }
+                else
+                {
+                    this.CurrentState = default(CursorState);
+
+                    return false;
                 }
             }
 
             // Couldn't parse
             return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(PropertyStringList))
-                {
-                    this.UrlList = ((PropertyStringList)value).StringValues;
-                    return true;
-                }
-                else if (value.GetType() == typeof(CursorState))
-                {
-                    this.BackupState = (CursorState)value;
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        public override bool TrySetValues(object[] values)
-        {
-            bool allValuesSet = true;
-
-            foreach (object obj in values)
-            {
-                if (!this.TrySetValue(obj))
-                {
-                    allValuesSet = false;
-                }
-            }
-
-            return allValuesSet;
         }
     }
 }

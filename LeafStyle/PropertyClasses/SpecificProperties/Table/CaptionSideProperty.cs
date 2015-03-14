@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class CaptionSideProperty : BasicStyleProperty<CaptionSideState>
+    public class CaptionSideProperty : BasicStyleProperty<CaptionSideState>
     {
         public CaptionSideProperty()
             : base(

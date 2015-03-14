@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class FontWeightProperty : BasicStyleProperty<FontWeightState>
+    public class FontWeightProperty : BasicStyleProperty<FontWeightState>
     {
         private int number;
         public int Number
@@ -132,21 +132,6 @@ namespace LeafStyle
             }
 
             // Couldn't parse
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(int))
-                {
-                    // All the logic for handeling the specific set of values is in the
-                    // TrySetStateValue method.
-                    return this.TrySetStateValue(((int)value).ToString());
-                }
-            }
-
             return false;
         }
     }

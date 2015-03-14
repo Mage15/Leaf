@@ -21,7 +21,7 @@ using System;
 namespace LeafStyle
 {
     //General
-    public enum BasicColorState { Color, Initial, Inherit }
+    public enum BasicColorState { Inherit, Color, Initial }
 
     public enum BasicImageState { None, Image, Initial, Inherit }
 
@@ -62,8 +62,6 @@ namespace LeafStyle
     public enum NumberAutoState { Auto, Number, Initial, Inherit }
 
     public enum NumberLengthState { Number, Length, Initial, Inherit }
-
-    public enum TextDecorationState { None, Underline, Overline, LineThrough, Initial, Inherit }
 
     public enum TimingFunctionState { Linear, Ease, EaseIn, EaseOut, EaseInOut, CubicBezier, Initial, Inherit }
 
@@ -160,9 +158,9 @@ namespace LeafStyle
 
     public enum CursorState
     {
-        Alias,
-        AllScroll,
         Auto,
+        Alias,
+        AllScroll,        
         Cell,
         ContextMenu,
         ColResize,
@@ -171,6 +169,8 @@ namespace LeafStyle
         Default,
         E_Resize,
         EW_Resize,
+        Grab,
+        Grabbing,
         Help,
         Move,
         N_Resize,
@@ -334,6 +334,10 @@ namespace LeafStyle
     public enum TextAlignState { Left, Right, Center, Justify, Initial, Inherit }
 
     public enum TextAlignLastState { Auto, Left, Right, Center, Justify, Start, End, Initial, Inherit }
+
+    public enum TextDecorationLineState { None, Underline, Overline, LineThrough, Initial, Inherit }
+
+    public enum TextDecorationStyleState { Solid, Double, Dotted, Dashed, Wavy, Initial, Inherit }
 
     public enum TextJustifyState
     {

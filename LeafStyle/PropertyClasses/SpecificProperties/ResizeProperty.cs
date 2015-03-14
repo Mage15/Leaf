@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class ResizeProperty : BasicStyleProperty<ResizeState>
+    public class ResizeProperty : BasicStyleProperty<ResizeState>
     {
         public ResizeProperty()
             : base(

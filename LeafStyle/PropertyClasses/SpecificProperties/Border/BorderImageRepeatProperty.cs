@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BorderImageRepeatProperty : BasicStyleProperty<BorderImageRepeatState>
+    public class BorderImageRepeatProperty : BasicStyleProperty<BorderImageRepeatState>
     {
         public BorderImageRepeatProperty()
             : base(

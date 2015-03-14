@@ -21,7 +21,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class TextShadowProperty : BasicStyleProperty<TextShadowState>
+    public class TextShadowProperty : BasicStyleProperty<TextShadowState>
     {
         private Parser.ColorParser colorParser = new Parser.ColorParser();
         private Parser.PointParser pointParser = new Parser.PointParser();
@@ -95,42 +95,6 @@ namespace LeafStyle
 
             // Could not parse
             return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(Point))
-                {
-                    this.Location = (Point)value;
-                    this.CurrentState = TextShadowState.UseValues;
-
-                    return true;
-                }
-                else if (value.GetType() == typeof(Microsoft.Xna.Framework.Color))
-                {
-                    this.Color = (Microsoft.Xna.Framework.Color)value;
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        public override bool TrySetValues(object[] values)
-        {
-            bool allValuesSet = true;
-
-            foreach (object obj in values)
-            {
-                if (!this.TrySetValue(obj))
-                {
-                    allValuesSet = false;
-                }
-            }
-
-            return allValuesSet;
         }
     }
 }

@@ -20,19 +20,13 @@ using System;
 
 namespace LeafStyle
 {
-    internal abstract class StyleProperty
+    public abstract class StyleProperty
     {
         public bool Inherited { get; protected set; }
         public bool Animatable { get; protected set; }
         public bool Inherit { get; set; }
 
-        public abstract Type GetTypeOfValues();
-
         public abstract bool TrySetStateValue(string value);
-
-        public abstract bool TrySetValue(object value);
-
-        public abstract bool TrySetValues(object[] values);
     }
 }
 

@@ -20,23 +20,23 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class TextDecorationProperty : BasicStyleProperty<TextDecorationState>
+    public class TextDecorationLineProperty : BasicStyleProperty<TextDecorationLineState>
     {
-        public TextDecorationProperty()
+        public TextDecorationLineProperty()
             : base(
-                defaultState: default(TextDecorationState),
+                defaultState: default(TextDecorationLineState),
                 inherited: false,
                 animatable: false
                 )
         {
-            this.StateValues = new Dictionary<string, TextDecorationState>()
+            this.StateValues = new Dictionary<string, TextDecorationLineState>()
                 {
-                    {"none", TextDecorationState.None},
-                    {"line-through", TextDecorationState.LineThrough},
-                    {"overline", TextDecorationState.Overline},
-                    {"underline", TextDecorationState.Underline},
-                    {"inherit", TextDecorationState.Inherit},
-                    {"initial", TextDecorationState.Initial}
+                    {"none", TextDecorationLineState.None},
+                    {"line-through", TextDecorationLineState.LineThrough},
+                    {"overline", TextDecorationLineState.Overline},
+                    {"underline", TextDecorationLineState.Underline},
+                    {"inherit", TextDecorationLineState.Inherit},
+                    {"initial", TextDecorationLineState.Initial}
                 };
         }
     }

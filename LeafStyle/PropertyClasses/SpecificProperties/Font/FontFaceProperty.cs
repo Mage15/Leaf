@@ -22,8 +22,8 @@ using System.Collections.Generic;
 namespace LeafStyle
 {
     //Needs special implementation
-    //internal class FontFaceProperty : BasicStyleProperty<FontFaceState>
+    //public class FontFaceProperty : BasicStyleProperty<FontFaceState>
     //{
-
+    // This will most likely be a dictionary of font names and their associated font files
     //}
 }

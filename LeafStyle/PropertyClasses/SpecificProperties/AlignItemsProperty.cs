@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class AlignItemsProperty : BasicStyleProperty<AlignItemsState>
+    public class AlignItemsProperty : BasicStyleProperty<AlignItemsState>
     {
         public AlignItemsProperty()
             : base(
@@ -31,7 +31,7 @@ namespace LeafStyle
         {
             this.StateValues = new Dictionary<string, AlignItemsState>()
 				{
-					{"strech", AlignItemsState.Stretch },
+					{"stretch", AlignItemsState.Stretch },
 					{"center", AlignItemsState.Center },
 					{"flex-start", AlignItemsState.FlexStart },
 					{"flex-end", AlignItemsState.FlexEnd },

@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class AnimationNameProperty : BasicStyleProperty<AnimationNameState>
+    public class AnimationNameProperty : BasicStyleProperty<AnimationNameState>
     {
         public string Name { get; set; }
 
@@ -57,22 +57,6 @@ namespace LeafStyle
             }
 
             // value was null
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(string))
-                {
-                    this.Name = (string)value;
-                    this.CurrentState = AnimationNameState.KeyFrameName;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

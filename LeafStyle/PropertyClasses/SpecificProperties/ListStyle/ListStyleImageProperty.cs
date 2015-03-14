@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class ListStyleImageProperty : ImageStyleProperty<ListStyleImageState>
+    public class ListStyleImageProperty : ImageStyleProperty<ListStyleImageState>
     {
         private Parser.StringParser stringParser = new Parser.StringParser();
 
@@ -62,19 +62,6 @@ namespace LeafStyle
             }
 
             // Couldn't parse
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(PropertyString))
-                {
-                    this.ImageName = ((PropertyString)value).StringValue;
-                }
-            }
-
             return false;
         }
     }

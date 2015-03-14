@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class NumberAutoProperty : BasicStyleProperty<NumberAutoState>
+    public class NumberAutoProperty : BasicStyleProperty<NumberAutoState>
     {
         public int Number { get; set; }
 
@@ -59,22 +59,6 @@ namespace LeafStyle
             }
 
             // Could not be parsed
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(int))
-                {
-                    this.Number = (int)value;
-                    this.CurrentState = NumberAutoState.Number;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

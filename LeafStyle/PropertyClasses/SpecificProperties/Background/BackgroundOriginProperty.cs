@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BackgroundOriginProperty : BasicStyleProperty<BackgroundOriginState>
+    public class BackgroundOriginProperty : BasicStyleProperty<BackgroundOriginState>
     {
         public BackgroundOriginProperty()
             : base(

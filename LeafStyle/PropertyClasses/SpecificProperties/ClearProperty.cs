@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class ClearProperty : BasicStyleProperty<ClearState>
+    public class ClearProperty : BasicStyleProperty<ClearState>
     {
         public ClearProperty()
             : base(

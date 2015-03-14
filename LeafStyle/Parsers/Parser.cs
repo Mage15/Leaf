@@ -25,19 +25,17 @@ namespace LeafStyle
     internal partial class Parser
     {
         /// <summary>
-        /// Sets the StyleProperties and their values with the provided CSS string of property names and 
-        /// desired values.
+        /// Sets the StyleProperties and their values with the provided semicolon seperated values list string of 
+        /// property names and values pair, each name seperated from it's values be a colon and each pair ending 
+        /// with a semicolon. e.g. border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;
         /// </summary>
-        /// <param name="styleObject"></param>
-        /// <param name="property"></param>
-        /// <param name="value"></param>
-        internal bool CSSSetProperty(Style styleObject, string value)
+        internal bool CSSSetProperty(UIStyle styleObject, string value)
         {
             if (value != null)
             {
                 const string Group_Property = "property";
                 const string Group_Values = "values";
-                const string cssPattern = @"(?<" + Group_Property + @">[a-zA-Z\-]+)\s*:\s*(?<" + Group_Values + @">[a-zA-Z1-9#\(\)\.\s\,]+)\s*;";
+                const string cssPattern = @"(?<" + Group_Property + @">[a-zA-Z\-]+)?\s*:\s*(?<" + Group_Values + ">[a-zA-Z0-9#\"" + @"()!=.\s,%-]+)?\s*;";
             
                 Regex regex = new Regex(cssPattern, RegexOptions.ExplicitCapture);
                 MatchCollection matchCollection = regex.Matches(value);
@@ -177,6 +175,29 @@ namespace LeafStyle
             borderColorValues.Add(Property.BorderLeftColor, "");
             borderColorValues.Add(Property.BorderBottomColor, "");
             borderColorValues.Add(Property.BorderRightColor, "");
+
+            if (!String.IsNullOrEmpty(values))
+            {
+
+                // Use Regex for parse
+
+                return true;
+            }
+
+            // Couldn't parse                
+            return false;
+        }
+
+        // BorderImage
+        internal bool TryBorderImageValues(string values, out Dictionary<Property, string> borderImageValues)
+        {
+            borderImageValues = new Dictionary<Property, string>();
+
+            borderImageValues.Add(Property.BorderImageSource, "");
+            borderImageValues.Add(Property.BorderImageSlice, "");
+            borderImageValues.Add(Property.BorderImageWidth, "");
+            borderImageValues.Add(Property.BorderImageOutset, "");
+            borderImageValues.Add(Property.BorderImageRepeat, "");
 
             if (!String.IsNullOrEmpty(values))
             {
@@ -418,6 +439,27 @@ namespace LeafStyle
         internal bool TryPadding(string values, out Dictionary<Property, string> paddingValues)
         {
             throw new NotImplementedException();
+        }
+
+        // Text Decoration
+        internal bool TryTextDecoration(string values, out Dictionary<Property, string> textDecorationValues)
+        {
+            textDecorationValues = new Dictionary<Property, string>();
+
+            textDecorationValues.Add(Property.TextDecorationLine, "");
+            textDecorationValues.Add(Property.TextDecorationColor, "");
+            textDecorationValues.Add(Property.TextDecorationStyle, "");
+
+            if (!String.IsNullOrEmpty(values))
+            {
+
+                // Use Regex for parse
+
+                return true;
+            }
+
+            // Couldn't parse                
+            return false;
         }
 
         // Transition

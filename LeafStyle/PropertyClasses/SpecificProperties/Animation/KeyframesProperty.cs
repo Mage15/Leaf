@@ -22,7 +22,7 @@ using System.Collections.Generic;
 namespace LeafStyle
 {
     //Needs special implementation
-    //internal class KeyframesProperty : BasicStyleProperty<KeyframesState>
+    //public class KeyframesProperty : BasicStyleProperty<KeyframesState>
     //{
 
     //}

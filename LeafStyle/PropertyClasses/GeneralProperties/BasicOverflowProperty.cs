@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BasicOverflowProperty : BasicStyleProperty<BasicOverflowState>
+    public class BasicOverflowProperty : BasicStyleProperty<BasicOverflowState>
     {
         public BasicOverflowProperty()
             : base(

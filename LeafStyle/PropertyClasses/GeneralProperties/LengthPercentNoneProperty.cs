@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class LengthPercentNoneProperty : BasicStyleProperty<LengthPercentNoneState>
+    public class LengthPercentNoneProperty : BasicStyleProperty<LengthPercentNoneState>
     {
         public int LengthAbsolute { get; set; }
         public float LengthPercent { get; set; }
@@ -73,29 +73,6 @@ namespace LeafStyle
             }
 
             // Could not be parsed
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(int))
-                {
-                    this.LengthAbsolute = (int)value;
-                    this.CurrentState = LengthPercentNoneState.LengthAbsolute;
-
-                    return true;
-                }
-                else if (value.GetType() == typeof(float))
-                {
-                    this.LengthPercent = (float)value;
-                    this.CurrentState = LengthPercentNoneState.LengthPercent;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

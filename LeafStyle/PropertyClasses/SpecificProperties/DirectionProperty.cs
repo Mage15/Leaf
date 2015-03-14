@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class DirectionProperty : BasicStyleProperty<DirectionState>
+    public class DirectionProperty : BasicStyleProperty<DirectionState>
     {
         public DirectionProperty()
             : base(

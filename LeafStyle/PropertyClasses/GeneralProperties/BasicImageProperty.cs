@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BasicImageProperty : ImageStyleProperty<BasicImageState>
+    public class BasicImageProperty : ImageStyleProperty<BasicImageState>
     {
         private Parser.StringParser imageParser = new Parser.StringParser();
 

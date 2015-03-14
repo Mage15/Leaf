@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class UnicodeBidiProperty : BasicStyleProperty<UnicodeBidiState>
+    public class UnicodeBidiProperty : BasicStyleProperty<UnicodeBidiState>
     {
         public UnicodeBidiProperty()
             : base(

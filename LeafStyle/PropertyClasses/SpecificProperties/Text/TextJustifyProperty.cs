@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class TextJustifyProperty : BasicStyleProperty<TextJustifyState>
+    public class TextJustifyProperty : BasicStyleProperty<TextJustifyState>
     {
         public TextJustifyProperty()
             : base(

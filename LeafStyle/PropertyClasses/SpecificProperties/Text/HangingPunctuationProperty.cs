@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class HangingPunctuationProperty : BasicStyleProperty<HangingPunctuationState>
+    public class HangingPunctuationProperty : BasicStyleProperty<HangingPunctuationState>
     {
         public HangingPunctuationProperty()
             : base(

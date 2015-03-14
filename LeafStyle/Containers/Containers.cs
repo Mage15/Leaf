@@ -24,122 +24,12 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    #region Custom Structs
-
-    public struct Matrix2D
+    public class ContentValuesContainer
     {
-        public Vector4 BoxCorners;
-        public Point ShiftXY;
-
-        public Matrix2D(float row0X, float row0Y, float row1X, float row1Y, int shiftX, int shiftY)
-        {
-            this.BoxCorners = new Vector4(row0X, row0Y, row1X, row1Y);
-            this.ShiftXY = new Point(shiftX, shiftY);
-        }
-    }
-
-    public struct Point3D
-    {
-        public int X;
-        public int Y;
-        public int Z;
-
-        public Point3D(int x, int y, int z)
-        {
-            this.X = x;
-            this.Y = y;
-            this.Z = z;
-        }
-    }
-
-    // Used to avoid taking in a null value for a string in the wrapper methods
-    public struct PropertyString
-    {
-        public string StringValue;
-
-        public PropertyString(string stringValue)
-        {
-            if (String.IsNullOrEmpty(stringValue))
-            {
-                StringValue = String.Empty;
-            }
-            else
-            {
-                StringValue = stringValue;
-            }
-        }
-
-        public bool IsEmpty()
-        {
-            return String.IsNullOrEmpty(StringValue);
-        }
-    }
-
-    // Used to avoid taking in a null value for a list of strings in the wrapper methods
-    public struct PropertyStringList
-    {
-        public List<string> StringValues;
-
-        public PropertyStringList(List<PropertyString> stringValues)
-        {
-            StringValues = new List<string>();
-
-            if (stringValues != null)
-            {
-                foreach (PropertyString propString in stringValues)
-                {
-                    StringValues.Add(propString.StringValue);
-                }
-            }
-        }
-
-        public string this[int index]
-        {
-            get
-            {
-                if (index < 0 || index > StringValues.Count - 1)
-                {
-                    throw new IndexOutOfRangeException();
-                }
-                else
-                {
-                    return StringValues[index];
-                }
-            }
-            set
-            {
-                if (index < 0 || index > StringValues.Count - 1)
-                {
-                    throw new IndexOutOfRangeException();
-                }
-                else
-                {
-                    if (value == null)
-                    {
-                        StringValues[index] = String.Empty;
-                    }
-                    else
-                    {
-                        StringValues[index] = value;
-                    }
-                }
-            }
-        }
-
-        public bool IsEmpty()
-        {
-            return StringValues.Count == 0;
-        }
-    }
-
-    #endregion
-
-    #region Containers
-
-    public struct NavValuesContainer
-    {
-        public PropertyString Id { get; set; }
-        public PropertyString TargetName { get; set; }
+        // Should look at using PropertyString
+        public string Attribute { get; set; }
+        public string String { get; set; }
+        public Uri Url { get; set; }
     }
 
     public class QuadValues<T>
@@ -171,14 +61,6 @@ namespace LeafStyle
         { }
 
         public QuadValues() { }
-    }
-
-    public class ContentValuesContainer
-    {
-        // Should look at using PropertyString
-        public PropertyString Attribute { get; set; }
-        public PropertyString String { get; set; }
-        public Uri Url { get; set; }
     }
 
     public struct QuoteValuesContainer
@@ -256,8 +138,6 @@ namespace LeafStyle
 
         public int Z_Absolute { get; set; }
     }
-
-    #endregion
 
     public static class Origin
     {

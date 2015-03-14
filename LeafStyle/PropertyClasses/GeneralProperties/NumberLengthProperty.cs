@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class NumberLengthProperty : BasicStyleProperty<NumberLengthState>
+    public class NumberLengthProperty : BasicStyleProperty<NumberLengthState>
     {
         public short Number { get; set; }
         public int Length { get; set; }
@@ -73,29 +73,6 @@ namespace LeafStyle
             }
 
             // Can not be parsed
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(int))
-                {
-                    this.Length = (int)value;
-                    this.CurrentState = NumberLengthState.Length;
-
-                    return true;
-                }
-                else if (value.GetType() == typeof(short))
-                {
-                    this.Number = (short)value;
-                    this.CurrentState = NumberLengthState.Number;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

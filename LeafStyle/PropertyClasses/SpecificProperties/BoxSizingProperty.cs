@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BoxSizingProperty : BasicStyleProperty<BoxSizingState>
+    public class BoxSizingProperty : BasicStyleProperty<BoxSizingState>
     {
         public BoxSizingProperty()
             : base(

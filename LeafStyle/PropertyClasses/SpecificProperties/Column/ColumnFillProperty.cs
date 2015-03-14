@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class ColumnFillProperty : BasicStyleProperty<ColumnFillState>
+    public class ColumnFillProperty : BasicStyleProperty<ColumnFillState>
     {
         public ColumnFillProperty()
             : base(

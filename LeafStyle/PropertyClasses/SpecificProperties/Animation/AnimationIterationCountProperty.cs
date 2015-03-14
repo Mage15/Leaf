@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class AnimationIterationCountProperty : BasicStyleProperty<AnimationIterationCountState>
+    public class AnimationIterationCountProperty : BasicStyleProperty<AnimationIterationCountState>
     {
         public int Number { get; set; }
 
@@ -61,22 +61,6 @@ namespace LeafStyle
             }
 
             // Could not be parsed
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(int))
-                {
-                    this.Number = (int)value;
-                    this.CurrentState = AnimationIterationCountState.Number;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

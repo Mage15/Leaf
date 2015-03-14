@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class OutlineColorProperty : BasicStyleProperty<OutlineColorState>
+    public class OutlineColorProperty : BasicStyleProperty<OutlineColorState>
     {
         private Parser.ColorParser colorParser = new Parser.ColorParser();
 
@@ -61,22 +61,6 @@ namespace LeafStyle
             }
 
             // Couldn't parse
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(Microsoft.Xna.Framework.Color))
-                {
-                    this.Color = (Microsoft.Xna.Framework.Color)value;
-                    this.CurrentState = OutlineColorState.Color;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

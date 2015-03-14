@@ -21,7 +21,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BorderImageSliceProperty : BasicStyleProperty<BorderImageSliceState>
+    public class BorderImageSliceProperty : BasicStyleProperty<BorderImageSliceState>
     {
         private Parser.VectorParser vectorParser = new Parser.VectorParser();
         private Parser.PointParser pointParser = new Parser.PointParser();
@@ -79,29 +79,6 @@ namespace LeafStyle
             }
 
             // Could not parse
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(Point))
-                {
-                    this.Number = (Point)value;
-                    this.CurrentState = BorderImageSliceState.Number;
-
-                    return true;
-                }
-                else if (value.GetType() == typeof(Vector2))
-                {
-                    this.Percent = (Vector2)value;
-                    this.CurrentState = BorderImageSliceState.Percent;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

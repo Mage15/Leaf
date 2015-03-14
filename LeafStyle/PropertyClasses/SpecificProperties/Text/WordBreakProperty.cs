@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class WordBreakProperty : BasicStyleProperty<WordBreakState>
+    public class WordBreakProperty : BasicStyleProperty<WordBreakState>
     {
         public WordBreakProperty()
             : base(

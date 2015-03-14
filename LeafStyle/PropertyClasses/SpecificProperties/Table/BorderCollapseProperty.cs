@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BorderCollapseProperty : BasicStyleProperty<BorderCollapseState>
+    public class BorderCollapseProperty : BasicStyleProperty<BorderCollapseState>
     {
         public BorderCollapseProperty()
             : base(

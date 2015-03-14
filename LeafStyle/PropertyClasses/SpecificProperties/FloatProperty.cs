@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class FloatProperty : BasicStyleProperty<FloatState>
+    public class FloatProperty : BasicStyleProperty<FloatState>
     {
         public FloatProperty()
             : base(

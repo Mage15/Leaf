@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class TextOverflowProperty : BasicStyleProperty<TextOverflowState>
+    public class TextOverflowProperty : BasicStyleProperty<TextOverflowState>
     {
         public string String { get; set; }
 
@@ -56,22 +56,6 @@ namespace LeafStyle
             }
 
             // value was null
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(string))
-                {
-                    this.String = (string)value;
-                    this.CurrentState = TextOverflowState.String;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

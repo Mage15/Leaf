@@ -1,135 +1,110 @@
 ﻿/*
-Copyright (C) 2015 Matthew Gefaller
-This file is part of LeafStyle.
+Copyright (C) 2014 Matthew Gefaller
+This file is part of MonoGameUIStyle.
 
-LeafStyle is free software: you can redistribute it and/or modify
+MonoGameUIStyle is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-LeafStyle is distributed in the hope that it will be useful,
+MonoGameUIStyle is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with LeafStyle. If not, see <http://www.gnu.org/licenses/>.
+along with MonoGameUIStyle. If not, see <http://www.gnu.org/licenses/>.
 */
 
 using Microsoft.Xna.Framework;
 using System;
 using System.Linq;
 
-namespace LeafStyle
+namespace MonogameUIStyle
 {
     public partial class Style
     {
-        //Needs more testing
-        //If state is null remove from StyleProperties
-        private bool SetProperty<TState>(Property property, TState? stateValue)
-            where TState : struct, IConvertible
+        /// <summary>
+        /// Builds and stores the associated StyleProperties from provided CSS string.
+        /// <para>&#160;</para><br />
+        /// <para>Note: The string must be in the proper CSS format.</para>
+        /// <para>Example: </para> 
+        /// <para>&#160;&#160;"background-color:#cccccc; background-size: auto;" </para>
+        /// <para>or </para>
+        /// <para>&#160;&#160;"background-color:#cccccc; </para>
+        /// <para>&#160;&#160;&#160;&#160;background-size: auto;"</para>
+        /// </summary>
+        /// <param name="propertyAnValues"></param>
+        /// <returns></returns>
+        public bool SetPropertiesFromCSS(string cssString)
         {
-            if (typeof(TState).IsEnum)
+            return this.parser.CSSSetProperty(this, cssString);
+        }
+
+        /// <summary>
+        /// Aligns the flexible container's items when the items do not use all available space on the vertical-axis.
+        /// <para>&#160;</para><br />
+        /// <para>Tip: Use the JustifyContent method to align the items on the horizontal-axis.</para>
+        /// <para>Note: There must be multiple lines for this property to have any effect.</para>
+        /// </summary>
+        /// <param name="alignContentState"></param>
+        public void AlignContentSet(AlignContentState alignContentState)
+        {
+            if (!StyleProperties.ContainsKey(Property.AlignContent))
             {
-                if (stateValue != null)
-                {
-                    Type newType; // Stores the retrieved Type of the StyleProperty
-                    if (this.StyleProperties.ContainsKey(property))
-                    {
-                        if (typeof(TState) == ((dynamic)this.StyleProperties[property]).GetTypeOfValues())
-                        {
-                            ((dynamic)this.StyleProperties[property])
-                                .CurrentState = (TState)stateValue; //Cast to remove ability to nullify when setting
+                StyleProperties.Add(Property.AlignContent, new AlignContentProperty());
+            }
+            
+            StyleProperties[Property.AlignContent].TrySetCurrentState<AlignContentState>(alignContentState);
+        }
 
-                            return true;
-                        }
-                        else
-                        {
-                            // The TState type dosen't match the type of the property's values
-                            return false;
-                        }
-                    }
-                    else
-                    {
-                        if (Value.GetPropertyType(property, out newType)) // If type is returned
-                        {
-                            try
-                            {
-                                var newObj = Activator.CreateInstance(newType);
-                                ((dynamic)newObj).CurrentState = (TState)stateValue; //Cast to remove ability to nullify when setting
-
-                                this.AddOrOverwrite(property, (StyleProperty)newObj);
-                            }
-                            catch
-                            {
-                                // Something went wrong so return false
-                                return false;
-                            }
-                        }
-                        else
-                        {
-                            // Couldn't find type
-                            return false;
-                        }
-                    }
-
-                    // Check to make sure the property was set correctly
-                    return (StyleProperties[property].GetType() == newType);
-                }
-                else // The state value is null so remove property from Dictionary
-                {
-                    if (this.StyleProperties.Keys.Contains(property))
-                        this.StyleProperties.Remove(property);
-
-                    // return whether the Key is still in the Dictionary
-                    return StyleProperties.Keys.Contains(property);
-                }
+        /// <summary>
+        /// Attempts to access the current state of the AlignContent StyleProperty. The return value indicates if
+        /// the property's current state was successfully accessed.
+        /// </summary>
+        /// <param name="state"></param>
+        /// <returns></returns>
+        public bool TryAlignContentGet(out AlignContentState state)
+        {
+            if (StyleProperties.ContainsKey(Property.AlignContent))
+            {
+                state = ((AlignContentProperty)StyleProperties[Property.AlignContent]).CurrentState;
+                return true;
             }
             else
             {
-                // Wasn't an Enum so the values was not set
+                state = default(AlignContentState);
                 return false;
             }
         }
 
-        // First calls SetProperty<> then passes the boxed value along to the property object
-        private bool SetProperty<TState>(Property property, TState? stateValue, object value)
-            where TState : struct, IConvertible
+        public void AlignContentRemove()
         {
-            if (this.SetProperty<TState>(property, stateValue)) // Will create the porperty and add to StyleProperties if doesn't exist
+            if (StyleProperties.ContainsKey(Property.AlignContent))
             {
-                return StyleProperties[property].TrySetValue(value);
-            }
-            else
-            {
-                return false;
+                StyleProperties.Remove(Property.AlignContent);
             }
         }
 
-        // First calls the SetProperty<> then passes the boxed values along to the property object
-        private bool SetProperty<TState>(Property property, TState? stateValue, object[] values)
-            where TState : struct, IConvertible
-        {
-            if (this.SetProperty<TState>(property, stateValue))// Will create the porperty and add to StyleProperties if doesn't exist
-            {
-                return StyleProperties[property].TrySetValues(values);
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public void AlignContent(AlignContentState? alignContentState)
-        {
-            this.SetProperty<AlignContentState>(Property.AlignContent, alignContentState);
-        }
-
+        /// <summary>
+        /// Specifies the default alignment for items inside the flexible container.
+        /// <para>&#160;</para><br />
+        /// <para>Tip: Use the AlignSelf method of each item to override this StyleProperty.</para>
+        /// <para>Note: A null value will remove this StyleProperty from storage.</para>
+        /// </summary>
+        /// <param name="alignItemsState"></param>
         public void AlignItems(AlignItemsState? alignItemsState)
         {
             this.SetProperty<AlignItemsState>(Property.AlignItems, alignItemsState);
         }
 
+        /// <summary>
+        /// Specifies the alignment for the selected item inside the flexible container.
+        /// <para>&#160;</para><br />
+        /// <para>Note: The AlignSelf StyleProperty overrides the flexible container's AlignItems StyleProperty.</para>
+        /// <para>Note: A null value will remove this StyleProperty from storage.</para>
+        /// </summary>
+        /// <param name="alignItemsState"></param>
         public void AlignSelf(AlignSelfState? alignSelfState)
         {
             this.SetProperty<AlignSelfState>(Property.AlignSelf, alignSelfState);

@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class WhiteSpaceProperty : BasicStyleProperty<WhiteSpaceState>
+    public class WhiteSpaceProperty : BasicStyleProperty<WhiteSpaceState>
     {
         public WhiteSpaceProperty()
             : base(

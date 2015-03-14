@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BorderImageWidthProperty : BasicStyleProperty<BorderImageWidthState>
+    public class BorderImageWidthProperty : BasicStyleProperty<BorderImageWidthState>
     {
         private Parser.QuadValuesParser quadParser = new Parser.QuadValuesParser();
 
@@ -89,37 +89,6 @@ namespace LeafStyle
             }
 
             // Could not be parsed
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(QuadValues<int>))
-                {
-                    this.Absolute = (QuadValues<int>)value;
-                    this.CurrentState = BorderImageWidthState.Length;
-
-                    return true;
-                }
-                else if (value.GetType() == typeof(QuadValues<float>))
-                {
-                    this.Percent = (QuadValues<float>)value;
-                    this.CurrentState = BorderImageWidthState.Percent;
-
-                    return true;
-                }
-
-                if (value.GetType() == typeof(QuadValues<short>))
-                {
-                    this.Number = (QuadValues<short>)value;
-                    this.CurrentState = BorderImageWidthState.Number;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

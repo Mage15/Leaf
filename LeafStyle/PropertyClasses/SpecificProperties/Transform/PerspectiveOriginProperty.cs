@@ -22,7 +22,7 @@ using System.Collections.Generic;
 namespace LeafStyle
 {
     //Needs special implementation
-    //internal class PerspectiveOriginProperty : BasicStyleProperty<PerspectiveOriginState>
+    //public class PerspectiveOriginProperty : BasicStyleProperty<PerspectiveOriginState>
     //{
 
     //}

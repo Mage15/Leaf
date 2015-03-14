@@ -21,7 +21,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class TableLayoutProperty : BasicStyleProperty<TableLayoutState>
+    public class TableLayoutProperty : BasicStyleProperty<TableLayoutState>
     {
         public TableLayoutProperty()
             : base(

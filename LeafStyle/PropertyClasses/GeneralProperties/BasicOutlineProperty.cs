@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BasicOutlineProperty : BasicStyleProperty<BasicOutlineState>
+    public class BasicOutlineProperty : BasicStyleProperty<BasicOutlineState>
     {
         public BasicOutlineProperty()
             : base(

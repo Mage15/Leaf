@@ -22,7 +22,7 @@ using System.Collections.Generic;
 namespace LeafStyle
 {
     //Needs special implementation
-    //internal class TransformOriginProperty : BasicStyleProperty<BasicValuesState>
+    //public class TransformOriginProperty : BasicStyleProperty<BasicValuesState>
     //{
     //    public Origin.X_Axis X_Axis { get; set; }
     //    public Origin.Y_Axis Y_Axis { get; set; }

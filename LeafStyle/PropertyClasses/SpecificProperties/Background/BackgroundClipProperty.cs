@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BackgroundClipProperty : BasicStyleProperty<BackgroundClipState>
+    public class BackgroundClipProperty : BasicStyleProperty<BackgroundClipState>
     {
         public BackgroundClipProperty()
             : base(

@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class WordWrapProperty : BasicStyleProperty<WordWrapState>
+    public class WordWrapProperty : BasicStyleProperty<WordWrapState>
     {
         public WordWrapProperty()
             : base(

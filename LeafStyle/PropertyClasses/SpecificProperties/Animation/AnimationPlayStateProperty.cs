@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class AnimationPlayStateProperty : BasicStyleProperty<AnimationPlayStates>
+    public class AnimationPlayStateProperty : BasicStyleProperty<AnimationPlayStates>
     {
         public AnimationPlayStateProperty()
             : base(

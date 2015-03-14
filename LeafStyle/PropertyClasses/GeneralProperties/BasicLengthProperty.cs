@@ -20,9 +20,9 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class BasicLengthProperty : BasicStyleProperty<BasicLengthState>
+    public class BasicLengthProperty : BasicStyleProperty<BasicLengthState>
     {
-        public int Length { get; set; }
+        public int Length { get; private set; }
 
         public BasicLengthProperty()
             : base(
@@ -59,22 +59,6 @@ namespace LeafStyle
             }
 
             // Could not be parsed
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(int))
-                {
-                    this.Length = (int)value;
-                    this.CurrentState = BasicLengthState.Length;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

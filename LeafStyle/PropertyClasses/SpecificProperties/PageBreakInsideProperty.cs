@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class PageBreakInsideProperty : BasicStyleProperty<PageBreakInsideState>
+    public class PageBreakInsideProperty : BasicStyleProperty<PageBreakInsideState>
     {
         public PageBreakInsideProperty()
             : base(

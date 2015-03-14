@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class LengthNoneProperty : BasicStyleProperty<LengthNoneState>
+    public class LengthNoneProperty : BasicStyleProperty<LengthNoneState>
     {
         public int Length { get; set; }
 
@@ -59,22 +59,6 @@ namespace LeafStyle
             }
 
             // Could not be parsed
-            return false;
-        }
-
-        public override bool TrySetValue(object value)
-        {
-            if (value != null)
-            {
-                if (value.GetType() == typeof(int))
-                {
-                    this.Length = (int)value;
-                    this.CurrentState = LengthNoneState.Length;
-
-                    return true;
-                }
-            }
-
             return false;
         }
     }

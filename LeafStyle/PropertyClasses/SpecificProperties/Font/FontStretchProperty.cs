@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace LeafStyle
 {
-    internal class FontStretchProperty : BasicStyleProperty<FontStretchState>
+    public class FontStretchProperty : BasicStyleProperty<FontStretchState>
     {
         public FontStretchProperty()
             : base(
